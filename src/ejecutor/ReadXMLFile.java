@@ -76,9 +76,9 @@ public class ReadXMLFile {
             
             int cantidadHilos = pilasproceso; //cantidad de hilos en el pool
             ExecutorService executor = Executors.newFixedThreadPool(cantidadHilos);
-
+            int lineaLectura=0;
             for (int temp = 0; temp < nList.getLength(); temp++) {
-
+                lineaLectura++;
                 Node nNode = nList.item(temp);
 
                 //System.out.println("\nCurrent Element :" + nNode.getNodeName());
@@ -91,7 +91,7 @@ public class ReadXMLFile {
                     String changefreq="";
                     //String priority = eElement.getElementsByTagName("priority").item(0).getTextContent();
                     String priority="";
-                    Verifica verifica = new Verifica(url, lastmod, changefreq, priority);
+                    Verifica verifica = new Verifica(url, lastmod, changefreq, priority,lineaLectura);
                     //verifica.start( );
                     ////////////////////////////////////////////////////////////////////
                     

@@ -21,12 +21,14 @@ public class Verifica implements Runnable {
     private String lastmod;
     private String changefreq;
     private String priority;
+    private int lineaLectura;
 
-    public Verifica(String url, String lastmod, String changefreq, String priority) {
+    public Verifica(String url, String lastmod, String changefreq, String priority,int lineaLectura) {
         this.url = url;
         this.lastmod = lastmod;
         this.changefreq = changefreq;
         this.priority = priority;
+        this.lineaLectura = lineaLectura;
     }
 
     @Override
@@ -47,10 +49,11 @@ public class Verifica implements Runnable {
                 System.out.println("priority : " + eElement.getElementsByTagName("priority").item(0).getTextContent());
                 System.out.println("Existe : " + (exis ? "Existe" : "No Existe"));
                  */
-                System.out.print("" + url + "|");
-                System.out.print("" + this.lastmod + "|");
-                System.out.print("" + this.changefreq + "|");
-                System.out.print("" + this.priority + "|");
+                System.out.print("Elemento:" + lineaLectura + "|");
+                System.out.print("" + url.trim() + "|");
+                System.out.print("" + this.lastmod.trim() + "|");
+                System.out.print("" + this.changefreq.trim() + "|");
+                System.out.print("" + this.priority.trim() + "|");
                 System.out.print("" + (exis ? "Existe" : "No Existe") + "|");
                 System.out.println("");
 
